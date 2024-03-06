@@ -44,3 +44,8 @@ libraries scanning project source files.
 
 More information about PlatformIO Library Dependency Finder
 - https://docs.platformio.org/page/librarymanager/ldf.html
+
+
+file User_setup ./PlatformIO/Projects/mini/.pio/libdeps/lolin_s2_mini/TFT_eSPI/User_Setup.h
+
+file Setup42 ./PlatformIO/Projects/mini/.pio/libdeps/lolin_s2_mini/TFT_eSPI/User_Setups/
