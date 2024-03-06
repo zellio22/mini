@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../esp32/s2_mini"
+		},
+		{
+			"name": "mini",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
