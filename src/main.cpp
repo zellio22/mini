@@ -38,8 +38,10 @@ void setup() {
   Serial.println("ILI9341 Test!"); 
   
   tft.begin();
+  tft.init();
   tft.setTextSize(3);
-  
+
+
   tft.fillScreen(tft.color565(255,0,0));
 
   
@@ -51,8 +53,17 @@ void loop(void) {
    i++;
    tft.setCursor(100,100);
    tft.print(i);
-   
-   
+
+  uint16_t x = 0, y = 0; // To store the touch coordinates
+
+  // Pressed will be set true is there is a valid touch on the screen
+  bool pressed = tft.getTouch(&x, &y);
+    if (pressed) {
+      tft.fillCircle(x, y, 2, TFT_WHITE);
+      Serial.print("detection en "+String(x,y));
+      
    Serial.println((millis()-debut));
+  }
+
 }
 
