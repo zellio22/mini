@@ -17,19 +17,17 @@
 #include "SPI.h"
 
 
-// For the Adafruit shield, these are the default.
-//#define TFT_DC 9
-//#define TFT_CS 7
-//#define TFT_MOSI 11
-//#define TFT_MISO 4
-//#define TFT_RST 5
-//#define TFT_CLK 12
+/*
+#define TFT_MISO 4  // (leave TFT SDO disconnected if other SPI devices share MISO)
+#define TFT_MOSI 11
+#define TFT_SCLK 12
+#define TFT_CS    7  // Chip select control pin
+#define TFT_DC    9  // Data Command control pin
+#define TFT_RST   5  // Reset pin (could connect to RST pin)
 
-// Use hardware SPI (on Uno, #13, #12, #11) and the above for CS/DC
-//Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
-// If using the breakout, change pins as desired
-//Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
-
+// Optional touch screen chip select
+#define TOUCH_CS 3 // Chip select pin (T_CS) of touch screen
+*/
 TFT_eSPI tft = TFT_eSPI(); 
 unsigned long debut =0;
 
@@ -58,12 +56,14 @@ void loop(void) {
 
   // Pressed will be set true is there is a valid touch on the screen
   bool pressed = tft.getTouch(&x, &y);
-    if (pressed) {
+  
+    if (pressed==true) {
+      Serial.println("detection en x= "+String(x)+" y= "+String(y));
       tft.fillCircle(x, y, 2, TFT_WHITE);
-      Serial.print("detection en "+String(x,y));
       
-   Serial.println((millis()-debut));
   }
+
+  //Serial.println((millis()-debut));
 
 }
 
