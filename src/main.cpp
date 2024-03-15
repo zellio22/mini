@@ -41,7 +41,7 @@ void setup() {
   tft.setRotation(1);
 
   tft.fillScreen(tft.color565(255,0,0));
-  pinMode(15,OUTPUT);/ 
+  pinMode(15,OUTPUT);
   digitalWrite(15,HIGH);
   
 }
