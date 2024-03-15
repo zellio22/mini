@@ -38,10 +38,11 @@ void setup() {
   tft.begin();
   tft.init();
   tft.setTextSize(3);
-
+  tft.setRotation(1);
 
   tft.fillScreen(tft.color565(255,0,0));
-
+  pinMode(15,OUTPUT);/ 
+  digitalWrite(15,HIGH);
   
 }
 
@@ -49,7 +50,7 @@ int i =0;
 void loop(void) {
    debut = millis();
    i++;
-   tft.setCursor(100,100);
+   tft.setCursor(100,50);
    tft.print(i);
 
   uint16_t x = 0, y = 0; // To store the touch coordinates
@@ -59,11 +60,11 @@ void loop(void) {
   
     if (pressed==true) {
       Serial.println("detection en x= "+String(x)+" y= "+String(y));
-      tft.fillCircle(x, y, 2, TFT_WHITE);
+      tft.fillCircle(abs(x-320), y, 2, TFT_WHITE);
       
   }
 
-  //Serial.println((millis()-debut));
+  Serial.println((millis()-debut));
 
 }
 
